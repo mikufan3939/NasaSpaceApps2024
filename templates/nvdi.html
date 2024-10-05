@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NDVI Vista da Imagem do Satélite</title>
+    <!-- Link para Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/static/nvdi.css">
 </head>
 
@@ -13,20 +15,59 @@
     <header>
         <h1>NDVI na Agricultura</h1>
         <p>Monitorando a saúde das plantas com tecnologia</p>
-      </header>
+        <button class="button" onclick="window.location.href='/'">Voltar</button>
+    </header>
 
-    <!-- Imagem NDVI -->
-    <img src="/static/images/nvdi{{imageId-1}}.jpeg" alt="teste">
+    <div class="container">
+        <!-- Imagem NDVI -->
+        <img class="ndvi-image" src="/static/images/nvdi{{imageId-1}}.jpeg" alt="Imagem NDVI">
 
-    <!-- Legenda NDVI -->
-    <div class="legend">
-        <h3>Legenda NDVI</h3>
-        <ul>
-            <li id="water"><span class="color-box color-water"></span> -1 - Corresponde a água</li> 
-            <li id="color-no-veg"><span class="color-box color-no-veg"></span>-0.1 a 0.1 - Solo</li>
-            <li id="medium-high"><span class="color-box color-medium-high"></span>0.2 a 0.4 - Plantas pouco saudáveis</li>
-            <li id="high"><span class="color-box color-high"></span> Acima de 0.4 - Plantas saudáveis</li>
-        </ul>
+        <!-- Legenda NDVI -->
+        <div class="legend">
+            <h3>Legenda NDVI</h3>
+            <ul>
+                <li id="water"><span class="material-icons">water_drop</span> <span class="color-box color-water"></span> -1 - Corresponde a água</li>
+                <li id="color-no-veg"><span class="material-icons">terrain</span> <span class="color-box color-no-veg"></span> -0.1 a 0.1 - Local onde não há vegetação</li>
+                <li id="medium-high"><span class="material-icons">eco</span> <span class="color-box color-medium-high"></span> 0.2 a 0.4 - Plantas pouco saudáveis</li>
+                <li id="high"><span class="material-icons">forest</span> <span class="color-box color-high"></span> Acima de 0.4 - Plantas saudáveis</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tabela de Sugestões -->
+    <div class="suggestions">
+        <h3>Sugestões Baseadas no NDVI</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Faixa NDVI</th>
+                    <th>Cor</th>
+                    <th>Sugestão</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>-1</td>
+                    <td><span class="color-box color-water"></span></td>
+                    <td>Regiões com água. Verificar o sistema de irrigação e drenagem.</td>
+                </tr>
+                <tr>
+                    <td>-0.1 a 0.1</td>
+                    <td><span class="color-box color-no-veg"></span></td>
+                    <td>Local sem vegetação. Verificar a viabilidade de plantio.</td>
+                </tr>
+                <tr>
+                    <td>0.2 a 0.4</td>
+                    <td><span class="color-box color-medium-high"></span></td>
+                    <td>Plantas pouco saudáveis. Avaliar a necessidade de fertilizantes ou irrigação adicional.</td>
+                </tr>
+                <tr>
+                    <td>Acima de 0.4</td>
+                    <td><span class="color-box color-high"></span></td>
+                    <td>Plantas saudáveis. Continuar o monitoramento para manutenção da saúde da plantação.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </body>

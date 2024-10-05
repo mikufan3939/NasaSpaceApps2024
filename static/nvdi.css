@@ -1,43 +1,59 @@
+/* Estrutura da página */
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
+    padding: 20px;
     background-color: #f4f4f4;
 }
 
 header {
-    /*background: linear-gradient(100deg, #243d1e, #076407);*/
-    background: #243d1e;
-    color: white;
-    margin-bottom: 60px;
-    /* Espaço para evitar sobreposição */
-  }
-
-img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
     margin-bottom: 20px;
 }
 
+.container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.button{
+    background-color: #ffffff;
+    color: #032b04;
+    border: 2px solid #002901;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+/* Estilo da imagem NDVI */
+.ndvi-image {
+    max-width: 60%;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Legenda ao lado direito da imagem */
 .legend {
-    width: 300px;
-    border: 1px solid #ccc;
+    flex-basis: 35%;
     background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .legend h3 {
-    margin: 0;
-    padding-bottom: 10px;
-    font-size: 16px;
-    text-align: center;
+    margin-top: 0;
 }
 
 .legend ul {
@@ -45,73 +61,76 @@ img {
     padding: 0;
 }
 
-.legend ul li {
+.legend li {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-size: 14px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.legend ul li span.color-box {
+.color-box {
     display: inline-block;
-    width: 30px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
-.color-low {
-    background-color: #d73027;
-}
-
-.color-medium-low {
-    background-color: #f46d43;
-}
-
-.color-medium {
-    background-color: #fee08b;
-}
-
-.color-medium-high {
-    background-color: #8abb4c;
-}
-
-.color-high {
-    background-color: #084b04;
+/* Cores das legendas */
+.color-water {
+    background-color: #dddddd;
 }
 
 .color-no-veg {
-    background-color: #e3dda9;
+    background-color: #e9e4ac;
 }
 
-.color-water {
-    background-color: #e2e2e4 ;
+.color-medium-high {
+    background-color: #94c457;
 }
 
-.legend ul li.highlight {
-    font-weight: bold;
-    color: #d73027;
+.color-high {
+    background-color: #0d5006;
+}
+
+/* Estilos da tabela de sugestões */
+.suggestions {
+    margin-top: 40px;
+}
+
+.suggestions table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.suggestions th, .suggestions td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.suggestions th {
     background-color: #f0f0f0;
-    border-radius: 5px;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+.suggestions .color-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px; /* Adiciona espaço abaixo do cabeçalho */
-    padding: 20px; /* Adiciona espaço interno no cabeçalho */
+/* Estilos de cor dos ícones */
+.icon-water {
+    color: blue;
 }
 
-.legend ul li.highlight {
-    font-weight: bold;
-    color: #d73027;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+.icon-no-veg {
+    color: brown;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+.icon-seedling {
+    color: green;
+}
+
+.icon-tree {
+    color: darkgreen;
 }
