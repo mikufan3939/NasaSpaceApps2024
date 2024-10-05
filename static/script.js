@@ -1,5 +1,5 @@
 // Inicializa o mapa
-var map = L.map('map').setView([-23.420986, -51.933777], 12); // Exemplo: São Paulo, Brasil
+var map = L.map('map').setView([-23.070333052, -52.458998164], 11); // Exemplo: São Paulo, Brasil
 
 // Adiciona uma camada de tile ao mapa
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
