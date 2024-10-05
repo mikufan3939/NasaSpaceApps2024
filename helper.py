@@ -8,7 +8,12 @@ import matplotlib.pyplot as plt
 async def getNDVI(cord1, cord2, cord3, cord4):
   CLIENT_ID = "fba95cfe-bb9f-405e-af99-e26e803c5b88"
   CLIENT_SECRET = "XwzRbSHZPTkYmUknHjsOmWGbJU1UmCEi"
-
+  print(cord1)
+  cord1.reverse()
+  cord2.reverse()
+  cord3.reverse()
+  cord4.reverse()
+  print(cord1)
   # set up credentials
   client = BackendApplicationClient(client_id=CLIENT_ID)
   oauth = OAuth2Session(client=client)
@@ -124,8 +129,3 @@ async def getNDVI(cord1, cord2, cord3, cord4):
   image = (Image.open(io.BytesIO(response.content)))
   return image
 
-
-getNDVI([-46.659249, -23.536920],
-    [-46.661653, -23.563357],
-    [-46.574775, -23.568707],
-    [-46.584734, -23.543215])

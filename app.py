@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request  
+from flask import Flask, redirect, render_template, request  
 from datetime import datetime
 from helper import getNDVI
 app = Flask(__name__)
@@ -11,7 +11,7 @@ async def map():
         return render_template("mapa.html")
     else:
         cords=request.get_json()
-        print(cords)
+        print(cords[0])
         ndviImage= await getNDVI(cords[0],cords[1],cords[2],cords[3])
         ndviImage.save("static/images/nvdi"+str(imageId)+".jpeg")
         imageId=imageId+1
@@ -20,8 +20,7 @@ async def map():
 @app.route("/nvdi", methods=["GET"])
 def nvdi():
     global imageId
-    print("teste")
-    return render_template("index.html", ImageId=imageId)
+    return render_template("nvdi.html", imageId=imageId)
 
 @app.route("/", methods=["GET"])
 def index():

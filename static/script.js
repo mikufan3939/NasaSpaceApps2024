@@ -49,15 +49,19 @@ document.addEventListener('keydown', function (e) {
 
 var xhr = new XMLHttpRequest();
 
-function enviarApi() {
+async function enviarApi() {
     let json = JSON.stringify(polygonPoints);
 
-    xhr.open('POST', 'http://127.0.0.1:5000/map', true);
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(json);
-
-    if (xhr.status === 200) {
-        var dados = JSON.parse(xhr.responseText);
-        console.log(dados);
-    }
+    $.ajax({
+        url: '/map',
+        type: 'POST',
+        contentType: 'application/json',
+        data: json,
+        success: function(response) {
+            document.write(response);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
 }
