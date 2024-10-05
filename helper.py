@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 async def getNDVI(cord1, cord2, cord3, cord4):
-  CLIENT_ID = "fba95cfe-bb9f-405e-af99-e26e803c5b88"
-  CLIENT_SECRET = "XwzRbSHZPTkYmUknHjsOmWGbJU1UmCEi"
+  CLIENT_ID = ""
+  CLIENT_SECRET = ""
   print(cord1)
   cord1.reverse()
   cord2.reverse()
