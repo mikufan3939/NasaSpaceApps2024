@@ -5,9 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NDVI Vista da Imagem do Satélite</title>
-    <!-- Link para Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/static/nvdi.css">
+    <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Adjust the container size */
+            margin: 0 auto; /* Center the container */
+            overflow: hidden; /* Prevent overflow when zooming */
+            display: flex; /* Use flexbox to center the image */
+            justify-content: center; /* Center the image horizontally */
+            align-items: center; /* Center the image vertically */
+        }
+
+        .ndvi-image {
+            width: 100%;
+            transition: transform 0.3s ease; /* Smooth transition */
+            cursor: zoom-in; /* Change cursor to indicate zoom */
+            transform-origin: center center; /* Ensure zooming happens from the center */
+            position: relative; /* Allow positioning for dragging */
+        }
+
+        .ndvi-image.zoomed {
+            transform: scale(2); /* Zoom in 2x */
+            cursor: zoom-out; /* Change cursor when zoomed */
+        }
+    </style>
 </head>
 
 <body>
@@ -18,20 +42,20 @@
         <button class="button" onclick="window.location.href='/'">Voltar</button>
     </header>
 
-    <div class="container">
-        <!-- Imagem NDVI -->
+    <!-- New container specifically for the NDVI image -->
+    <div class="image-container">
         <img class="ndvi-image" src="/static/images/nvdi{{imageId-1}}.jpeg" alt="Imagem NDVI">
+    </div>
 
-        <!-- Legenda NDVI -->
-        <div class="legend">
-            <h3>Legenda NDVI</h3>
-            <ul>
-                <li id="water"><span class="material-icons">water_drop</span> <span class="color-box color-water"></span> -1 - Corresponde a água</li>
-                <li id="color-no-veg"><span class="material-icons">terrain</span> <span class="color-box color-no-veg"></span> -0.1 a 0.1 - Local onde não há vegetação</li>
-                <li id="medium-high"><span class="material-icons">eco</span> <span class="color-box color-medium-high"></span> 0.2 a 0.4 - Plantas pouco saudáveis</li>
-                <li id="high"><span class="material-icons">forest</span> <span class="color-box color-high"></span> Acima de 0.4 - Plantas saudáveis</li>
-            </ul>
-        </div>
+    <!-- Legenda NDVI -->
+    <div class="legend">
+        <h3>Legenda NDVI</h3>
+        <ul>
+            <li id="water"><span class="material-icons">water_drop</span> <span class="color-box color-water"></span> -1 - Corresponde a água</li>
+            <li id="color-no-veg"><span class="material-icons">terrain</span> <span class="color-box color-no-veg"></span> -0.1 a 0.1 - Local onde não há vegetação</li>
+            <li id="medium-high"><span class="material-icons">eco</span> <span class="color-box color-medium-high"></span> 0.2 a 0.4 - Plantas pouco saudáveis</li>
+            <li id="high"><span class="material-icons">forest</span> <span class="color-box color-high"></span> Acima de 0.4 - Plantas saudáveis</li>
+        </ul>
     </div>
 
     <!-- Tabela de Sugestões -->
@@ -49,26 +73,70 @@
                 <tr>
                     <td>-1</td>
                     <td><span class="color-box color-water"></span></td>
-                    <td>Regiões com água. Verificar o sistema de irrigação e drenagem.</td>
+                    <td><span class="material-icons">water_drop</span> Regiões com água. Verificar o sistema de irrigação e drenagem.</td>
                 </tr>
                 <tr>
                     <td>-0.1 a 0.1</td>
                     <td><span class="color-box color-no-veg"></span></td>
-                    <td>Local sem vegetação. Verificar a viabilidade de plantio.</td>
+                    <td><span class="material-icons">terrain</span> Local sem vegetação. Verificar a viabilidade de plantio.</td>
                 </tr>
                 <tr>
                     <td>0.2 a 0.4</td>
                     <td><span class="color-box color-medium-high"></span></td>
-                    <td>Plantas pouco saudáveis. Avaliar a necessidade de fertilizantes ou irrigação adicional.</td>
+                    <td><span class="material-icons">eco</span> Plantas pouco saudáveis. Avaliar a necessidade de fertilizantes ou irrigação adicional.</td>
                 </tr>
                 <tr>
                     <td>Acima de 0.4</td>
                     <td><span class="color-box color-high"></span></td>
-                    <td>Plantas saudáveis. Continuar o monitoramento para manutenção da saúde da plantação.</td>
+                    <td><span class="material-icons">forest</span> Plantas saudáveis. Continuar o monitoramento para manutenção da saúde da plantação.</td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <script>
+        const image = document.querySelector('.ndvi-image');
+        let isDragging = false;
+        let startX, startY, scrollLeft, scrollTop;
+
+        image.addEventListener('click', function () {
+            this.classList.toggle('zoomed');
+            // Reset transform origin to the center when zoomed
+            if (this.classList.contains('zoomed')) {
+                this.style.transformOrigin = 'center center'; // Keep zoom centered
+            }
+        });
+
+        image.addEventListener('mousedown', (e) => {
+            if (image.classList.contains('zoomed')) {
+                isDragging = true;
+                startX = e.pageX - image.offsetLeft;
+                startY = e.pageY - image.offsetTop;
+                scrollLeft = image.scrollLeft;
+                scrollTop = image.scrollTop;
+                image.style.cursor = 'grabbing'; // Change cursor to grabbing
+            }
+        });
+
+        image.addEventListener('mouseleave', () => {
+            isDragging = false;
+            image.style.cursor = 'zoom-out'; // Change cursor when zoomed out
+        });
+
+        image.addEventListener('mouseup', () => {
+            isDragging = false;
+            image.style.cursor = 'zoom-out'; // Change cursor when zoomed out
+        });
+
+        image.addEventListener('mousemove', (e) => {
+            if (!isDragging) return; // Stop the function if not dragging
+            e.preventDefault(); // Prevent text selection
+            const x = e.pageX - startX;
+            const y = e.pageY - startY;
+            image.scrollLeft = scrollLeft - x;
+            image.scrollTop = scrollTop - y;
+        });
+    </script>
 
 </body>
 

@@ -19,6 +19,15 @@ function drawPolygon() {
     // Desenha o polígono
     if (polygonPoints.length > 0) {
         window.polygon = L.polygon(polygonPoints, { color: 'blue', fillColor: 'blue', fillOpacity: 0.5 }).addTo(map);
+
+        let popupContent = `
+<div>
+    <p>Você marcou estes pontos!</p>
+    <button class="btn btn-sm btn-primary" onclick="clearPolygon()">Desmarcar</button>
+</div>
+`;
+        if (polygonPoints.length == 4)
+            window.polygon.bindPopup(popupContent).openPopup();
     }
 }
 
@@ -50,18 +59,35 @@ document.addEventListener('keydown', function (e) {
 var xhr = new XMLHttpRequest();
 
 async function enviarApi() {
-    let json = JSON.stringify(polygonPoints);
 
-    $.ajax({
-        url: '/map',
-        type: 'POST',
-        contentType: 'application/json',
-        data: json,
-        success: function(response) {
-            document.write(response);
-        },
-        error: function(error) {
-            console.log(error);
-        }
-    });
+    if (polygonPoints.length < 4) {
+        alert("Coloque os 4 pontos!");
+
+    } else {
+        showLoading();
+        let json = JSON.stringify(polygonPoints);
+
+        $.ajax({
+            url: '/map',
+            type: 'POST',
+            contentType: 'application/json',
+            data: json,
+            success: function (response) {
+                document.write(response);
+                hideLoading();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+}
+
+
+function showLoading() {
+    document.getElementById('loading').style.display = 'flex'; // Mostra o carregamento
+}
+
+function hideLoading() {
+    document.getElementById('loading').style.display = 'none'; // Esconde o carregamento
 }

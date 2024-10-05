@@ -134,3 +134,28 @@ header {
 .icon-tree {
     color: darkgreen;
 }
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust the container size */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevent overflow when zooming */
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.ndvi-image {
+    width: 100%;
+    transition: transform 0.3s ease; /* Smooth transition */
+    cursor: zoom-in; /* Change cursor to indicate zoom */
+    transform-origin: center center; /* Ensure zooming happens from the center */
+}
+
+.ndvi-image.zoomed {
+    transform: scale(2); /* Zoom in 2x */
+    cursor: zoom-out; /* Change cursor when zoomed */
+}
+
+
