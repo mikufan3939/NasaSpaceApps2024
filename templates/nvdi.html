@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NDVI Vista da Imagem do Satélite</title>
+    <link rel="stylesheet" href="/static/nvdi.css">
 </head>
+
 <body>
+
+    <header>
+        <h1>NDVI na Agricultura</h1>
+        <p>Monitorando a saúde das plantas com tecnologia</p>
+      </header>
+
+    <!-- Imagem NDVI -->
     <img src="/static/images/nvdi{{imageId-1}}.jpeg" alt="teste">
+
+    <!-- Legenda NDVI -->
+    <div class="legend">
+        <h3>Legenda NDVI</h3>
+        <ul>
+            <li id="water"><span class="color-box color-water"></span> -1 - Corresponde a água</li> 
+            <li id="color-no-veg"><span class="color-box color-no-veg"></span>-0.1 a 0.1 - Solo</li>
+            <li id="medium-high"><span class="color-box color-medium-high"></span>0.2 a 0.4 - </li>
+            <li id="high"><span class="color-box color-high"></span> Acima de 0.4 - O solo se torna viável </li>
+        </ul>
+    </div>
+
 </body>
+
 </html>

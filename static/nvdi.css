@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    /*background: linear-gradient(100deg, #243d1e, #076407);*/
+    background: #243d1e;
+    color: white;
+    margin-bottom: 60px;
+    /* Espaço para evitar sobreposição */
+  }
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.legend {
+    width: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.legend ul {
+    list-style: none;
+    padding: 0;
+}
+
+.legend ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.legend ul li span.color-box {
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+}
+
+.color-low {
+    background-color: #d73027;
+}
+
+.color-medium-low {
+    background-color: #f46d43;
+}
+
+.color-medium {
+    background-color: #fee08b;
+}
+
+.color-medium-high {
+    background-color: #8abb4c;
+}
+
+.color-high {
+    background-color: #084b04;
+}
+
+.color-no-veg {
+    background-color: #e3dda9;
+}
+
+.color-water {
+    background-color: #e2e2e4 ;
+}
+
+.legend ul li.highlight {
+    font-weight: bold;
+    color: #d73027;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do cabeçalho */
+    padding: 20px; /* Adiciona espaço interno no cabeçalho */
+}
+
+.legend ul li.highlight {
+    font-weight: bold;
+    color: #d73027;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
