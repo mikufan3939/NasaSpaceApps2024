@@ -6,6 +6,10 @@ Rural View is a prototype web application that empowers agricultors, mainly thos
 ## Project Details
 Rural View is a prototype web application, developed using Python with Flask, which can be accessed with both mobile devices and computers. It allows the user to choose an area on a map, then it returns an image of the NDVI (normalized difference vegetation index) indices of the area. It works by requesting data from the Sentinel-2 sattelite via the Sentinel Hub API. Rural View benefits small to medium sized rural producers, empowering them with an easy way to access hard to visualize data, helping them with decision making regarding their crops. With this, we hope to achieve the improvement of resource management and decision making of local farmers.
 
+
+## Project Demo
+<a href=https://www.canva.com/design/DAGSrMyyYd0/1qpyOR2wHRQ21rXw3IbDbQ/edit?utm_content=DAGSrMyyYd0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton>Canva Presentation<a/>
+
 ### Use of Artificial Intelligence
 We used Chat GPT, to help with the idealization of the project, the coding and the pitch.
 
