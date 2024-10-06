@@ -19,3 +19,6 @@ We used Chat GPT, to help with the idealization of the project, the coding and t
 <a href=https://numpy.org>NumPy</a><br>
 <a href=https://oauthlib.readthedocs.io/en/latest>OAuthLib</a><br>
 <a href=https://python-pillow.org>Pillow</a><br>
+<a href=https://getbootstrap.com/>Bootstrap</a><br>
+<a href=https://leafletjs.com//>Leaflet</a><br>
+
