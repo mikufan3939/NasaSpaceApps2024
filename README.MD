@@ -10,12 +10,12 @@ Rural View is a web application, developed using Python with Flask, which can be
 We used Chat GPT, to help with the idealization of the project, the coding and the pitch.
 
 ### Space Agency Data
-https://www.earthdata.nasa.gov/learn/pathfinders/agricultural-and-water-resources-data-pathfinder/find-data#vegetation
+<a href=https://www.earthdata.nasa.gov/learn/pathfinders/agricultural-and-water-resources-data-pathfinder/find-data#vegetation>Agricultural and Water Resources Data-Pathfinder</a>
 
 ### References
-[https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/](Normalized difference vegetation index - Sentinel Hub)
-[https://flask.palletsprojects.com/en/3.0.x/](Flask)
-[https://matplotlib.org/](matplotlib)
-[https://numpy.org/](NumPy)
-[https://oauthlib.readthedocs.io/en/latest/](OAuthLib)
-[https://python-pillow.org/](Pillow)
+<a href=https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi>Normalized difference vegetation index - Sentinel Hub</a>
+<a href=https://flask.palletsprojects.com/en/3.0.x>Flask</a>
+<a href=https://matplotlib.org>matplotlib</a>
+<a href=https://numpy.org>NumPy</a>
+<a href=https://oauthlib.readthedocs.io/en/latest>OAuthLib</a>
+<a href=https://python-pillow.org>Pillow</a>
