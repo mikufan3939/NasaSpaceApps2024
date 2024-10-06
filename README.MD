@@ -8,7 +8,7 @@ Rural View is a prototype web application, developed using Python with Flask, wh
 
 
 ## Project Demo
-<a href=https://www.canva.com/design/DAGSrMyyYd0/1qpyOR2wHRQ21rXw3IbDbQ/edit?amp%3Butm_campaign=designshare&amp%3Butm_medium=link2&amp%3Butm_source=sharebutton>Canva Presentation</a>
+<a href=https://www.canva.com/design/DAGSrMyyYd0/1qpyOR2wHRQ21rXw3IbDbQ/view>Canva Presentation</a>
 
 
 ### Use of Artificial Intelligence
