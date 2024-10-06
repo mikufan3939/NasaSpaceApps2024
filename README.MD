@@ -13,9 +13,9 @@ We used Chat GPT, to help with the idealization of the project, the coding and t
 <a href=https://www.earthdata.nasa.gov/learn/pathfinders/agricultural-and-water-resources-data-pathfinder/find-data#vegetation>Agricultural and Water Resources Data-Pathfinder</a>
 
 ### References
-<a href=https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi>Normalized difference vegetation index - Sentinel Hub</a>
-<a href=https://flask.palletsprojects.com/en/3.0.x>Flask</a>
-<a href=https://matplotlib.org>matplotlib</a>
-<a href=https://numpy.org>NumPy</a>
-<a href=https://oauthlib.readthedocs.io/en/latest>OAuthLib</a>
-<a href=https://python-pillow.org>Pillow</a>
+<a href=https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi>Normalized difference vegetation index - Sentinel Hub</a><br>
+<a href=https://flask.palletsprojects.com/en/3.0.x>Flask</a><br>
+<a href=https://matplotlib.org>matplotlib</a><br>
+<a href=https://numpy.org>NumPy</a><br>
+<a href=https://oauthlib.readthedocs.io/en/latest>OAuthLib</a><br>
+<a href=https://python-pillow.org>Pillow</a><br>
